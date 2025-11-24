@@ -3,6 +3,7 @@ package sn.edu.isepat.tic.dfe.p6;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import sn.edu.isepat.tic.dfe.p6.entities.Profil;
 import sn.edu.isepat.tic.dfe.p6.entities.Utilisateur;
 
 public class TestAutoIncremente {
@@ -24,6 +25,14 @@ public class TestAutoIncremente {
         u2.setEmail("bmt@gmail.com");
         em.persist(u2);
         em.getTransaction().commit();
+
+        Profil p1 = new Profil();
+        p1.setBio("Directeur");
+        p1.setPhoto("photo.jpg");
+        p1.setTelephone("771681525");
+
+        u1.setProfile(p1);
+        em.persist(u1);
 
         em.close();
         emf.close();

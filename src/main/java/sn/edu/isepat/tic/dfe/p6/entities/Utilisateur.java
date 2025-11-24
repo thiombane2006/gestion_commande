@@ -16,7 +16,8 @@ public class Utilisateur {
     @Column(nullable = false, unique = true, length = 50) // unique = true veut dire que l'email sera unique
     private String email;
 
-    private Profile profile;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Profil profile;
 
     public Long getId() {
         return id;
@@ -42,11 +43,11 @@ public class Utilisateur {
         this.email = email;
     }
 
-    public Profile getProfile() {
+    public Profil getProfile() {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
+    public void setProfile(Profil profile) {
         this.profile = profile;
     }
 }
